@@ -1,3 +1,4 @@
+import Content from "../models/content.models.js";
 import User from "../models/user.models.js";
 import bcrypt from "bcrypt";
 
@@ -42,4 +43,18 @@ const handleLogin = async (req, res) => {
     }
 }
 
-export { handleUSer, handleLogin };
+const handleNots = async (req, res) => {
+    const { content } = req.body
+    try {
+        const result = await Content.create({ content })
+        res.send({ status: 1, msg: "Notes saved successfully", result })
+    } catch (error) {
+        res.send("Error while create notes", error)
+    }
+}
+
+const getAllNotes = async (req, res) => {
+    const viewAllnotes = await Content.find()
+    res.send({ status: 1, msg: "viewAll", viewAllnotes })
+}
+export { handleUSer, handleLogin, handleNots, getAllNotes };

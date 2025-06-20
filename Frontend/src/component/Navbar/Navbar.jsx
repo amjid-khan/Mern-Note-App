@@ -2,7 +2,7 @@ import React from 'react';
 import './Navbar.css';
 
 function Navbar() {
-  return (
+  return <>
     <nav className="navbar bg-white shadow-sm">
       <div className="container d-flex justify-content-between align-items-center">
         <a className="navbar-brand d-flex align-items-center fw-bold fs-4 text-primary" href="#">
@@ -12,7 +12,7 @@ function Navbar() {
         <button className="btn btn-outline-primary fw-semibold px-4">Logout</button>
       </div>
     </nav>
-  );
+  </>
 }
 
 export default Navbar;
