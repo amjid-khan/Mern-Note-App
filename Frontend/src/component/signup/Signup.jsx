@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./Signup.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate } from "react-router-dom";
 const Signup = () => {
+  const navigate = useNavigate()
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,6 +36,7 @@ const Signup = () => {
       setPassword("")
       console.log("User registered:", res.data);
       toast.success("Registration successful!");
+      navigate("/home")
     } catch (error) {
       console.error("Registration failed:", error);
       if (error.response) {
@@ -56,6 +58,7 @@ const Signup = () => {
   return (
     <>
       <ToastContainer />
+      <div className="signup-wrapper">
       <div className="signup-container">
         <form className="signup-form" method="post" onSubmit={handleuser}>
           <h2>Create Account</h2>
@@ -94,7 +97,8 @@ const Signup = () => {
             Already have an account? <NavLink to="/login">Login</NavLink>
           </p>
         </form>
-      </div>
+        </div>
+        </div>
     </>
   );
 };

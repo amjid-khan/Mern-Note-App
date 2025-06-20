@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Signin.css";
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Signin() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,6 +20,7 @@ function Signin() {
       });
       console.log("Login successful:", res.data);
       toast.success("Login successful!");
+      navigate("/home")
     } catch (error) {
       console.error("Login failed:", error);
       if (error.response) {
