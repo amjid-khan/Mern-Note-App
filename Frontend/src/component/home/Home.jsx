@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import Notes from "../Notes/Notes";
 
 function Home() {
   const [note, setNotes] = useState("");
@@ -82,6 +83,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Notes />
     </>
   );
 }

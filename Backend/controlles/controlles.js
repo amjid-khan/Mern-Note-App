@@ -57,4 +57,20 @@ const getAllNotes = async (req, res) => {
     const viewAllnotes = await Content.find()
     res.send({ status: 1, msg: "viewAll", viewAllnotes })
 }
-export { handleUSer, handleLogin, handleNots, getAllNotes };
+
+const handleDelete = async (req, res) => {
+    const id = req.params.id
+    try {
+        const handleDelete = await Content.deleteOne({ _id: id })
+        const result = {
+            status: 1,
+            msg: "Deleted Note successfully",
+            handleDelete
+        }
+        res.send(result)
+    } catch (error) {
+        console.log("Error while delte note", error);
+
+    }
+}
+export { handleUSer, handleLogin, handleNots, getAllNotes, handleDelete };
