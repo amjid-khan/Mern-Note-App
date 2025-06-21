@@ -5,6 +5,7 @@ import Signin from './component/signin/Signin'
 import Home from './component/home/Home'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import View from './component/view/View'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Signup />} />
           <Route path='/login' element={<Signin />} />
           <Route path='/home' element={<Home />} />
+          <Route path='/view' element={<View />} />
         </Routes>
      </Router>
     </>
