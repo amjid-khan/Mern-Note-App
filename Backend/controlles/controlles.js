@@ -1,7 +1,6 @@
 import Content from "../models/content.models.js";
 import User from "../models/user.models.js";
 import bcrypt from "bcrypt";
-
 const handleUSer = async (req, res) => {
     const { name, email, password } = req.body;
     try {
@@ -73,4 +72,16 @@ const handleDelete = async (req, res) => {
 
     }
 }
-export { handleUSer, handleLogin, handleNots, getAllNotes, handleDelete };
+
+const handleEdit = async (req, res) => {
+    const id = req.params.id
+    const { content } = req.body
+    try {
+        const result = await Content.updateOne({ _id: id }, { $set: { content: content } })
+        res.send({ status: 1, msg: "Update successfully", result })
+    } catch (error) {
+        console.log("Error while updating note", error);
+
+    }
+}
+export { handleUSer, handleLogin, handleNots, getAllNotes, handleDelete, handleEdit };

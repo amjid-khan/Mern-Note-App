@@ -10,12 +10,15 @@ function Home() {
   const handleNotes = async () => {
     try {
       await axios.post("http://localhost:8000/api/notes", { content: note });
-      toast.success("Saved Notes Successfully")
-      setNotes(""); 
+      toast.success("Saved Notes Successfully");
+      setNotes("");
     } catch (error) {
       console.error("Error saving note:", error);
     }
   };
+
+
+
 
   return (
     <>
@@ -83,7 +86,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <Notes />
+      <Notes/>
     </>
   );
 }

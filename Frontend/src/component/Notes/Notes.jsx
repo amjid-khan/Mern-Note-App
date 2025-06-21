@@ -64,10 +64,7 @@ function Notes() {
                 <div>
                   <button onClick={()=> navigate("/view" , {state : item})}  className="btn btn-sm btn-outline-primary me-1">
                     View
-                  </button>
-                  <button className="btn btn-sm btn-outline-warning me-1">
-                    Edit
-                  </button>
+                </button>
                   <button
                     onClick={() => handleDelete(item._id)}
                     className="btn btn-sm btn-outline-danger"
